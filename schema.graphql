@@ -1,0 +1,29 @@
+type Movie {
+  id: ID!
+  name: String!
+  posterSrc: String!
+  tomatoMeter: Float!
+  audienceScore: Float!
+  criticsConsensus: String!
+}
+
+type Review {
+  blurb: String!
+  author: String!
+  source: String!
+  fresh: Boolean!
+}
+
+input MovieInput {
+  id: ID!
+}
+
+input ReviewInput {
+  id: ID!
+}
+
+type Query {
+  movies: [Movie!]!
+  movie(input: MovieInput!): Movie!
+  movieReviews(input: ReviewInput!): [Review!]!
+}
